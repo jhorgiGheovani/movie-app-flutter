@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  android: circleci/android@1.0.3
+  android: circleci/android@2.5.0
   flutter: circleci/flutter@2.0.2
 
 jobs:
@@ -14,10 +14,18 @@ jobs:
       - checkout
 
       - flutter/install_sdk:
-          version: 3.7.9
+          version: 3.3.4
 
       - flutter/install_pub:
           cache-version: v1
+
+      - run:
+          name: Flutter clean
+          command: flutter clean
+
+      - run:
+          name: Print Dart SDK version
+          command: dart --version
 
       - run:
           name: Flutter pub get
