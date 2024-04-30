@@ -41,3 +41,5 @@ class TopRatedLoadedTvSeriesState extends TopRatedListState {
   @override
   List<Object> get props => [result];
 }
+
+class TopRatedUnknownState extends TopRatedListState {}

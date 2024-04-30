@@ -17,9 +17,6 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   void initState() {
     super.initState();
     context.read<TopRatedListBloc>().add(FetchTopRatedMovie());
-    // Future.microtask(() =>
-    //     Provider.of<TopRatedMoviesNotifier>(context, listen: false)
-    //         .fetchTopRatedMovies());
   }
 
   @override
@@ -47,6 +44,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
               );
             } else if (state is TopRatedErrorState) {
               return Center(
+                key: Key('error_message'),
                 child: Text(state.message),
               );
             } else {
@@ -54,32 +52,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
                 child: Text("Something went wrong!"),
               );
             }
-          })
-
-          // Consumer<TopRatedMoviesNotifier>(
-          //   builder: (context, data, child) {
-          //     if (data.state == RequestState.Loading) {
-          //       return Center(
-          //         child: CircularProgressIndicator(),
-          //       );
-          //     } else if (data.state == RequestState.Loaded) {
-          //       return ListView.builder(
-          //         itemBuilder: (context, index) {
-          //           final movie = data.movies[index];
-          //           return MovieCard(movie);
-          //         },
-          //         itemCount: data.movies.length,
-          //       );
-          //     } else {
-          //       return Center(
-          //         key: Key('error_message'),
-          //         child: Text(data.message),
-          //       );
-          //     }
-          //   },
-          // ),
-
-          ),
+          })),
     );
   }
 }

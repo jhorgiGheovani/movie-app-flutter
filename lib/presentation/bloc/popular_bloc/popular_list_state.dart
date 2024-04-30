@@ -41,3 +41,5 @@ class PopularListResultLoadedTvSeries extends PopularListState {
   @override
   List<Object> get props => [result];
 }
+
+class PopularListUnknownState extends PopularListState {}

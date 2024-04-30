@@ -41,3 +41,5 @@ class NowPlayingListResultLoadedTvSeries extends NowPlayingListState {
   @override
   List<Object> get props => [result];
 }
+
+class NowPlayingUnknownState extends NowPlayingListState {}

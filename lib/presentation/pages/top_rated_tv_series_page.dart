@@ -43,6 +43,7 @@ class _TopRatedTvSeriesPage extends State<TopRatedTvSeriesPage> {
               );
             } else if (state is TopRatedErrorState) {
               return Center(
+                key: Key('error_message'),
                 child: Text(state.message),
               );
             } else {

@@ -39,6 +39,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
             );
           } else if (state is PopularListResultError) {
             return Center(
+              key: Key('error_message'),
               child: Text(state.message),
             );
           } else {
@@ -47,29 +48,6 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
             );
           }
         }),
-
-        // Consumer<PopularMoviesNotifier>(
-        //   builder: (context, data, child) {
-        //     if (data.state == RequestState.Loading) {
-        //       return Center(
-        //         child: CircularProgressIndicator(),
-        //       );
-        //     } else if (data.state == RequestState.Loaded) {
-        //       return ListView.builder(
-        //         itemBuilder: (context, index) {
-        //           final movie = data.movies[index];
-        //           return MovieCard(movie);
-        //         },
-        //         itemCount: data.movies.length,
-        //       );
-        //     } else {
-        //       return Center(
-        //         key: Key('error_message'),
-        //         child: Text(data.message),
-        //       );
-        //     }
-        //   },
-        // ),
       ),
     );
   }

@@ -13,14 +13,6 @@ class NowPlayingTvSeriesPage extends StatefulWidget {
 }
 
 class _NowPlayingTvSeriesPage extends State<NowPlayingTvSeriesPage> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   Future.microtask(() =>
-  //       Provider.of<NowPlayingTvSeriesNotifier>(context, listen: false)
-  //           .fetchNowPlayingTvSeries());
-  // }
-
   @override
   Widget build(BuildContext context) {
     context.read<NowPlayingListBloc>().add(FetchNowPlayingTvSeries());
@@ -47,6 +39,7 @@ class _NowPlayingTvSeriesPage extends State<NowPlayingTvSeriesPage> {
             );
           } else if (state is NowPlayingListResultError) {
             return Center(
+              key: Key('error_message'),
               child: Text(state.message),
             );
           } else {
