@@ -1,0 +1,24 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/74Xsd38gdaAeRks4lipKyMQaOev.jpg",
+      "id": 214065,
+      "original_name": "The Confessions of Frannie Langton",
+      "overview": "Based on Sara Collins award-winning novel of the same name, which is set against the dazzling opulence of Georgian London, this powerful drama follows the eponymous Frannies journey from a Jamaican plantation to the grand Mayfair mansion of celebrated scientist George Benham and his exquisitely beautiful wife, Madame Marguerite Benham.",
+      "poster_path": "/1OgzGTlfvanIBxw6NFoS4A53NYp.jpg",
+      "media_type": "tv",
+      "adult": false,
+      "name": "The Confessions of Frannie Langton",
+      "original_language": "en",
+      "genre_ids": [18, 9648],
+      "popularity": 24.037,
+      "first_air_date": "2022-12-08",
+      "vote_average": 5.8,
+      "vote_count": 12,
+      "origin_country": ["GB"]
+    }
+  ],
+  "total_pages": 2,
+  "total_results": 40
+}
