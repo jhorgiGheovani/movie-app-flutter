@@ -20,14 +20,6 @@ jobs:
           cache-version: v1
 
       - run:
-          name: Flutter clean
-          command: flutter clean
-
-      - run:
-          name: Print Dart SDK version
-          command: dart --version
-
-      - run:
           name: Flutter pub get
           command: flutter pub get
 
