@@ -43,7 +43,6 @@ class _NowPlayingTvSeriesPage extends State<NowPlayingTvSeriesPage> {
               child: Text(state.message),
             );
           } else {
-            print(state.toString());
             return Center(
               child: Text("Something went wrong!"),
             );

@@ -75,7 +75,6 @@ Widget loadTvSeriesDetails(int id) {
         child: Text(state.message),
       );
     } else {
-      print(state.toString());
       return Center(
         child: Text("Something went wrong!"),
       );
@@ -98,7 +97,6 @@ Widget loadMovieDetail(int id) {
         child: Text(state.message),
       );
     } else {
-      print(state.toString());
       return Center(
         child: Text("Something went wrong!"),
       );
@@ -536,8 +534,7 @@ class DetailContentTvSeries extends StatelessWidget {
                               } else if (state
                                   is RecommendationLoadedTvSeriesState) {
                                 final result = state.result;
-                                print(
-                                    "RecommendationLoadedTvSeriesState $result");
+
                                 return Container(
                                   height: 150,
                                   child: ListView.builder(
@@ -585,7 +582,6 @@ class DetailContentTvSeries extends StatelessWidget {
                                   child: Text(state.message),
                                 );
                               } else {
-                                print(state.toString());
                                 return Center(
                                   child: Text("Something went wrong!"),
                                 );

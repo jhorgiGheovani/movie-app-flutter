@@ -156,7 +156,6 @@ class _HomePageState extends State<HomePage> {
                   child: Text(state.message),
                 );
               } else {
-                print(state.toString());
                 return Center(
                   child: Text("Something went wrong!"),
                 );
@@ -244,17 +243,16 @@ class _HomePageState extends State<HomePage> {
                   child: Text(state.message),
                 );
               } else {
-                print(state.toString());
                 return Center(
                   child: Text("Something went wrong!"),
                 );
               }
             }),
             _buildSubHeading(
-              title: 'Popular',
-              onTap: () =>
-                  Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
-            ),
+                title: 'Popular',
+                onTap: () {
+                  Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME);
+                }),
             BlocBuilder<PopularListBloc, PopularListState>(
                 builder: (context, state) {
               if (state is PopularListResultLoading) {
@@ -275,10 +273,10 @@ class _HomePageState extends State<HomePage> {
               }
             }),
             _buildSubHeading(
-              title: 'Top Rated',
-              onTap: () =>
-                  Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
-            ),
+                title: 'Top Rated',
+                onTap: () {
+                  Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME);
+                }),
             BlocBuilder<TopRatedListBloc, TopRatedListState>(
                 builder: (context, state) {
               if (state is TopRatedLoadingState) {

@@ -38,7 +38,6 @@ class _PopularTvSeriesPage extends State<PopularTvSeriesPage> {
               itemCount: result.length,
             );
           } else if (state is PopularListResultError) {
-            print("ErrorPopularMovie ${state.message}");
             return Center(
               key: Key('error_message'),
               child: Text(state.message),

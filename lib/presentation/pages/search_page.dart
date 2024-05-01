@@ -14,7 +14,6 @@ class SearchPage extends StatelessWidget {
   const SearchPage({Key? key, required this.type}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print("TYPE $type");
     return Scaffold(
         appBar: AppBar(
           title: Text('Search'),

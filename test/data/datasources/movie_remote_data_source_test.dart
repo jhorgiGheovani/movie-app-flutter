@@ -124,7 +124,7 @@ void main() {
       // act
       final result = await dataSource.getMovieDetail(tId);
       // assert
-      print("isEqual => ${result == tMovieDetail}");
+
       expect(result, equals(tMovieDetail));
     });
 
