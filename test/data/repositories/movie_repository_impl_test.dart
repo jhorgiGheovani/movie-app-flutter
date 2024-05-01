@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/ssl_pinning_client.dart';
 import 'package:ditonton/data/models/details_model.dart';
 import 'package:ditonton/data/models/genre_model.dart';
 import 'package:ditonton/data/models/movie_model.dart';
@@ -105,8 +106,36 @@ void main() {
       final result = await repository.getNowPlayingMovies();
       // assert
       verify(mockRemoteDataSource.getNowPlayingMovies());
+      print(result);
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
+    });
+
+    // test('should return tsl failure when get wrong certificate', () async {
+    //   // arrange
+    //   when(mockRemoteDataSource.getNowPlayingMovies())
+    //       .thenThrow(TlsException());
+    //   // act
+    //   final result = await repository.getNowPlayingMovies();
+    //   print(result);
+    //   // assert
+    //   verify(mockRemoteDataSource.getNowPlayingMovies());
+    //   expect(result, equals(Left(CommonFailure('Certificated not valid'))));
+    // });
+    test('should return tsl failure when get wrong certificate', () async {
+      // arrange
+      when(mockRemoteDataSource.getNowPlayingMovies())
+          .thenThrow(TlsException());
+      // act
+      final result = await repository.getNowPlayingMovies();
+      // assert
+      verify(mockRemoteDataSource.getNowPlayingMovies());
+      expect(
+          result,
+          isA<Left<Failure, dynamic>>().having(
+              (left) => left.value is CommonFailure,
+              'is a CommonFailure',
+              isTrue));
     });
   });
 
@@ -148,6 +177,21 @@ void main() {
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
     });
+
+    test('should return tsl failure when get wrong certificate', () async {
+      // arrange
+      when(mockRemoteDataSource.getPopularMovies()).thenThrow(TlsException());
+      // act
+      final result = await repository.getPopularMovies();
+      // assert
+      verify(mockRemoteDataSource.getPopularMovies());
+      expect(
+          result,
+          isA<Left<Failure, dynamic>>().having(
+              (left) => left.value is CommonFailure,
+              'is a CommonFailure',
+              isTrue));
+    });
   });
 
   group('Top Rated Movies', () {
@@ -186,6 +230,21 @@ void main() {
       // assert
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
+    });
+
+    test('should return tsl failure when get wrong certificate', () async {
+      // arrange
+      when(mockRemoteDataSource.getTopRatedMovies()).thenThrow(TlsException());
+      // act
+      final result = await repository.getTopRatedMovies();
+      // assert
+      verify(mockRemoteDataSource.getTopRatedMovies());
+      expect(
+          result,
+          isA<Left<Failure, dynamic>>().having(
+              (left) => left.value is CommonFailure,
+              'is a CommonFailure',
+              isTrue));
     });
   });
 
@@ -259,6 +318,21 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return tsl failure when get wrong certificate', () async {
+      // arrange
+      when(mockRemoteDataSource.getMovieDetail(tId)).thenThrow(TlsException());
+      // act
+      final result = await repository.getMovieDetail(tId);
+      // assert
+      verify(mockRemoteDataSource.getMovieDetail(tId));
+      expect(
+          result,
+          isA<Left<Failure, dynamic>>().having(
+              (left) => left.value is CommonFailure,
+              'is a CommonFailure',
+              isTrue));
+    });
   });
 
   group('Get Movie Recommendations', () {
@@ -305,6 +379,22 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return tsl failure when get wrong certificate', () async {
+      // arrange
+      when(mockRemoteDataSource.getMovieRecommendations(tId))
+          .thenThrow(TlsException());
+      // act
+      final result = await repository.getMovieRecommendations(tId);
+      // assert
+      verify(mockRemoteDataSource.getMovieRecommendations(tId));
+      expect(
+          result,
+          isA<Left<Failure, dynamic>>().having(
+              (left) => left.value is CommonFailure,
+              'is a CommonFailure',
+              isTrue));
+    });
   });
 
   group('Seach Movies', () {
@@ -345,6 +435,21 @@ void main() {
       // assert
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
+    });
+
+    test('should return tsl failure when get wrong certificate', () async {
+      // arrange
+      when(mockRemoteDataSource.searchMovies(tQuery)).thenThrow(TlsException());
+      // act
+      final result = await repository.searchMovies(tQuery);
+      // assert
+      verify(mockRemoteDataSource.searchMovies(tQuery));
+      expect(
+          result,
+          isA<Left<Failure, dynamic>>().having(
+              (left) => left.value is CommonFailure,
+              'is a CommonFailure',
+              isTrue));
     });
   });
 

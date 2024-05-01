@@ -29,14 +29,13 @@ void main() {
         .movieList;
     test('should return list of Movie Model when the response code is 200',
         () async {
-      // arrange
       when(mockHttpClient
               .get(Uri.parse('$BASE_URL/movie/now_playing?$API_KEY')))
           .thenAnswer((_) async =>
               http.Response(readJson('dummy_data/now_playing.json'), 200));
       // act
       final result = await dataSource.getNowPlayingMovies();
-      // assert
+      // // assert
       expect(result, equals(tMovieList));
     });
 

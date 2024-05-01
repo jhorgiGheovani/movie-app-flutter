@@ -1,4 +1,5 @@
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/ssl_pinning_client.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/bloc/detail_page_bloc/detail_page_bloc.dart';
 import 'package:ditonton/presentation/bloc/get_watchlist_movie_bloc/get_watchlist_movie_bloc.dart';
@@ -25,7 +26,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HttpSSLPinning.init();
   di.init();
   runApp(MyApp());
 }
